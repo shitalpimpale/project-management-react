@@ -26,6 +26,10 @@ const ProjectList = () => {
             setCurrentPage(page);
         }
     };
+    const handleUpdate = (updatedProject) => {
+        console.log('Updated updatedProject:', updatedProject);
+        getListOfProjects();
+    };
 
 
     const onDelete = async (id) => {
@@ -54,10 +58,10 @@ const ProjectList = () => {
         setSelectedProjectId(null);
     };
 
-    const handleUpdate = (updatedProject) => {
-        console.log('Updated Project:', updatedProject);
-        // Refresh project list or update the UI as needed
-    };
+    // const handleUpdate = (updatedProject) => {
+    //     console.log('Updated Project:', updatedProject);
+    //     // Refresh project list or update the UI as needed
+    // };
 
 
     useEffect(() => {

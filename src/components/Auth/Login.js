@@ -17,6 +17,8 @@ const Login = () => {
         console.log(formData);
         try {
             const { data } = await API.post('/auth/login', formData);
+            console.log(data)
+           // navigate('/dashboard'); // Redirect to dashboard
             if (data.status === 200) {
                 localStorage.setItem('token', data.token); // Save token to localStorage
                 localStorage.setItem('id', data.id);

@@ -101,6 +101,7 @@ const EditProject = ({ projectId, project, onClose, onUpdate }) => {
                                     value={projectDetail.target_date}
                                     onChange={handleChange}
                                     required
+                                    minDate={new Date()}
                                 />
                             </div>
                         </div>
