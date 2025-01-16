@@ -4,6 +4,7 @@ const API = axios.create({
     baseURL: 'http://localhost:3500/', // Your backend API base URL
 });
 
+//Add token to api call
 API.interceptors.request.use((config) => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -17,19 +18,4 @@ API.interceptors.request.use((config) => {
 
     return config;
 });
-// API.interceptors.response.use(
-//     (response) => {
-//         return response;
-//     },
-//     (error) => {
-//         console.log("error", error)
-//         if (
-//             (error && error.message === 'Request failed with status code 403')
-//         ) {
-//             localStorage.clear();
-//             window.location.href = "/login";
-//         }
-//         return Promise.reject(error);
-//     }
-// );
 export default API;
