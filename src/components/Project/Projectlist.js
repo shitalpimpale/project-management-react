@@ -1,4 +1,4 @@
-// src/components/Projects/ProjectList.js
+
 import React, { useEffect, useState } from 'react';
 import API from '../../api';
 import Navbar from '../Navbar';
@@ -9,6 +9,8 @@ const ProjectList = () => {
     const [selectedProjectId, setSelectedProjectId] = useState(null);
     const [selectedProject, setSelectedProject] = useState({});
     const [currentPage, setCurrentPage] = useState(1);
+     const [reset, setReset] = useState(true);
+    
     const ITEMS_PER_PAGE = 5; // Number of items per page
 
     // Calculate total pages
@@ -63,10 +65,12 @@ const ProjectList = () => {
     //     // Refresh project list or update the UI as needed
     // };
 
-
-    useEffect(() => {
-        getListOfProjects();
-    }, []);
+     useEffect(() => {
+            if (reset) {
+                getListOfProjects();
+                setReset(false);
+            }
+          }, [reset]);
 
 
     return (

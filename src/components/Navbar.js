@@ -1,4 +1,4 @@
-// src/components/Navbar.js
+
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -8,6 +8,7 @@ const Navbar = () => {
         localStorage.removeItem('token'); // Remove token
         navigate('/login'); // Redirect to login page
     };
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container">
@@ -20,6 +21,7 @@ const Navbar = () => {
                     aria-controls="navbarNav"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
+
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>

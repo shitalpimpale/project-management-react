@@ -6,11 +6,9 @@ import API from '../../api';
 const Dashboard = () => {
     const id = localStorage.getItem('id');
     const role = localStorage.getItem('role');
-    const [tasks, setTasks] = useState([
-        { id: 1, title: 'Fix Bug #42', status: 'In Progress', dueDate: '2023-12-31' },
-        { id: 2, title: 'Add Feature X', status: 'Not Started', dueDate: '2024-01-15' },
-    ]);
+    const [tasks, setTasks] = useState([]);
     const [projects, setProjects] = useState([]);
+    const [reset, setReset] = useState(true);
 
 
     const fetchTasks = async () => {
@@ -33,10 +31,17 @@ const Dashboard = () => {
 
 
     // Fetch tasks from API
+   
+
     useEffect(() => {
-        fetchTasks();
-        getListOfProjects();
-    }, []);
+        if (reset) {
+            fetchTasks();
+            getListOfProjects();
+            setReset(false);
+        }
+      }, [reset]);
+
+     
 
     const totalProjects = projects.length;
     const totalTasks = tasks.length;
